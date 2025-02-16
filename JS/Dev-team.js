@@ -1,11 +1,11 @@
 const devTeam = [
-    { name: "Trainereco", role: "Mc-developer", image: "Images/trainereco.jpg" }
+    { name: "Trainereco", role: "Mc-Developer", image: "Images/trainereco.jpg" }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-    const teamContainer = document.getElementById("dev-team-members");
+    const devContainer = document.getElementById("dev-team-members");
 
-    teamMembers.forEach(member => {
+    devTeam.forEach(member => {
         const div = document.createElement("div");
         div.classList.add("team-box");
         div.innerHTML = `
@@ -13,6 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
             <h3>${member.name}</h3>
             <p>${member.role}</p>
         `;
-        teamContainer.appendChild(div);
+        devContainer.appendChild(div);
     });
 });
