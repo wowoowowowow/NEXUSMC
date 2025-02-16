@@ -6,6 +6,7 @@
     <title>NEXUSMC - Home</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <script src="team.js" defer></script> <!-- Transpile team.ts to team.js -->
 </head>
 <body>
     <header>
@@ -14,7 +15,7 @@
     </header>
 
     <section id="portrait">
-        <img src="nexus_mc_rdx_logo.png" alt="NEXUSMC Server Image">
+        <img src="nexus_mc_rdx_logo.png" alt="NEXUSMC Logo">
     </section>
 
     <section id="about">
@@ -24,12 +25,14 @@
 
     <section id="minigames">
         <h2>Minigames</h2>
-        <ul id="game-list"></ul>
+        <div id="game-list" class="grid-container"></div>
     </section>
 
     <section id="team">
         <h2>Leading Team</h2>
-        <div id="team-members"></div>
+        <div id="team-members" class="grid-container">
+            <!-- Team members will be added dynamically -->
+        </div>
     </section>
 
     <section id="contact">
@@ -50,14 +53,11 @@
 
     <section id="shop">
         <h2>Shop</h2>
-        <p>Support our server by buying from our shop: <a href="https://nexusmc-269.tebex.io/" target="_blank">NEXUSMC Store</a></p>
+        <p>Support our server by visiting our shop: <a href="https://nexusmc-269.tebex.io/" target="_blank">NEXUSMC Store</a></p>
     </section>
 
     <footer>
         <p>&copy; 2025 NEXUSMC. All Rights Reserved.</p>
     </footer>
-
-    <script src="team.ts"></script>
 </body>
-            </html>
-            
+</html>
