@@ -1,8 +1,8 @@
 const minigames = [
-    { name: "BedWars", image: "Images/download (1).jpeg" },
-    { name: "LifeSteal", image: "Images/download (2).jpeg" },
-    { name: "Battle royal", image: "Images/download (3).jpeg" },
-    { name: "Among us", image: "Images/download (4).jpeg" }
+    { name: "BedWars", image: "Images/bedwars.jpeg" },
+    { name: "LifeSteal", image: "Images/LifeSteal.jpeg" },
+    { name: "Battle royal", image: "Images/battle.jpeg" },
+    { name: "Among us", image: "Images/amongus.jpeg" }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
