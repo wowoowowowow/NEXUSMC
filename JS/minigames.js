@@ -1,5 +1,5 @@
 const minigames = [
-    { name: "BedWars", image: "Images/bedwars.jpg" },
+    { name: "BedWars", image: "Images/download (1).jpeg" },
     { name: "SkyBlock", image: "Images/skyblock.jpg" },
     { name: "Survival", image: "Images/survival.jpg" },
     { name: "PvP Arena", image: "Images/pvp.jpg" }
