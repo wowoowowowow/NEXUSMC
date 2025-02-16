@@ -1,17 +1,11 @@
-interface TeamMember {
-    name: string;
-    role: string;
-    image: string;
-}
-
-const teamMembers: TeamMember[] = [
+const teamMembers = [
     { name: "Flash", role: "Founder", image: "Images/flash.jpg" },
     { name: "Snitchboss", role: "Head-developer", image: "Images/Snitch.jpg" },
     { name: "Dark", role: "Dc-founder", image: "Images/dark.jpg" }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-    const teamContainer = document.getElementById("team-members") as HTMLElement;
+    const teamContainer = document.getElementById("team-members");
 
     teamMembers.forEach(member => {
         const div = document.createElement("div");
