@@ -6,7 +6,7 @@ interface TeamMember {
 
 const team: TeamMember[] = [
     { name: "Flash", role: "Owner", image: "flash.png" },
-    { name: "Snitch", role: "Head-developer/Site Owner", image: "Snitch.png" }
+    { name: "Snitch", role: "Head-developer/Site Owner", image: "Snitch.jpg" }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
