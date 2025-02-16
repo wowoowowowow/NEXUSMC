@@ -1,8 +1,8 @@
 const minigames = [
     { name: "BedWars", image: "Images/download (1).jpeg" },
-    { name: "SkyBlock", image: "Images/skyblock.jpg" },
-    { name: "Survival", image: "Images/survival.jpg" },
-    { name: "PvP Arena", image: "Images/pvp.jpg" }
+    { name: "LifeSteal", image: "Images/download (2).jpeg" },
+    { name: "Battle royal", image: "Images/download (3).jpeg" },
+    { name: "Among us", image: "Images/download (4).jpeg" }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
