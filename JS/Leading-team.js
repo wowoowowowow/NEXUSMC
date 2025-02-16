@@ -1,6 +1,6 @@
 const teamMembers = [
     { name: "Flash", role: "Founder", image: "Images/flash.jpg" },
-    { name: "Snitchboss", role: "Head-developer", image: "Images/snitch.png" },
+    { name: "Snitchboss", role: "Head-developer", image: "Images/snitch.jpg" },
     { name: "Dark", role: "Dc-founder", image: "Images/dark.jpg" }
 ];
 
