@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const minigames = ["SkyWars", "BedWars", "Survival", "Factions"];
+    const minigames = [];
     const gameList = document.getElementById("game-list");
 
     minigames.forEach(game => {
