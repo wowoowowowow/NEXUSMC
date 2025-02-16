@@ -4,17 +4,18 @@ interface TeamMember {
     image: string;
 }
 
-const team: TeamMember[] = [
-    { name: "Flash", role: "Owner", image: "flash.png" },
-    { name: "Snitch", role: "Head-developer/Site Owner", image: "Snitch.jpg" }
+const teamMembers: TeamMember[] = [
+    { name: "Flash", role: "Founder", image: "Images/flash.jpg" },
+    { name: "Snitchboss", role: "Head-developer", image: "Images/Snitch.png" },
+    { name: "Dark", role: "Dc-founder", image: "Images/dark.jpg" }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
     const teamContainer = document.getElementById("team-members") as HTMLElement;
 
-    team.forEach(member => {
+    teamMembers.forEach(member => {
         const div = document.createElement("div");
-        div.classList.add("team-member");
+        div.classList.add("team-box");
         div.innerHTML = `
             <img src="${member.image}" alt="${member.name}">
             <h3>${member.name}</h3>
