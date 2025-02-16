@@ -6,7 +6,7 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
     { name: "Flash", role: "Founder", image: "Images/flash.jpg" },
-    { name: "Snitchboss", role: "Head-developer", image: "Images/Snitch.png" },
+    { name: "Snitchboss", role: "Head-developer", image: "Images/Snitch.jpg" },
     { name: "Dark", role: "Dc-founder", image: "Images/dark.jpg" }
 ];
 
