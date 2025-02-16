@@ -1,9 +1,9 @@
-const teamMembers = [
+const devTeam = [
     { name: "Trainereco", role: "Mc-developer", image: "Images/trainereco.jpg" }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-    const teamContainer = document.getElementById("team-members");
+    const teamContainer = document.getElementById("dev-team-members");
 
     teamMembers.forEach(member => {
         const div = document.createElement("div");
