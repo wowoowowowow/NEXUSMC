@@ -3,9 +3,14 @@ const buildingTeam = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-    const devContainer = document.getElementById("building-team-members");
+    const buildingContainer = document.getElementById("building-team-members");
 
-    devTeam.forEach(member => {
+    if (!buildingContainer) {
+        console.error("Error: Element with ID 'building-team-members' not found.");
+        return;
+    }
+
+    buildingTeam.forEach(member => {
         const div = document.createElement("div");
         div.classList.add("team-box");
         div.innerHTML = `
@@ -13,6 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
             <h3>${member.name}</h3>
             <p>${member.role}</p>
         `;
-        devContainer.appendChild(div);
+        buildingContainer.appendChild(div);
     });
 });
