@@ -33,25 +33,20 @@ header p {
 #portrait img {
     max-width: 100%;
     height: auto;
-    width: 300px; /* Default size */
+    width: 300px;
     border-radius: 10px;
 }
 
 @media (min-width: 768px) {
     #portrait img {
-        width: 500px; /* Larger on tablets */
+        width: 500px;
     }
 }
 
 @media (min-width: 1024px) {
     #portrait img {
-        width: 600px; /* Larger on desktops */
+        width: 600px;
     }
-}
-
-/* Section Titles */
-h2 {
-    color: #ff9800;
 }
 
 /* Grid Container for Minigames and Team */
@@ -76,88 +71,6 @@ h2 {
 .box:hover, .team-box:hover {
     transform: scale(1.05);
 }
-
-.box img, .team-box img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.box h3, .team-box h3 {
-    margin-top: 10px;
-    color: #ff9800;
-}
-
-.team-box p {
-    color: #ccc;
-}
-
-/* Contact Form */
-#contact {
-    background: #222;
-    padding: 30px;
-}
-
-#contact form {
-    max-width: 400px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-#contact label {
-    text-align: left;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-#contact input, #contact textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: none;
-    background: #333;
-    color: white;
-}
-
-#contact button {
-    margin-top: 15px;
-    padding: 10px;
-    background: #ff9800;
-    border: none;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-#contact button:hover {
-    background: #e68900;
-}
-
-/* Shop Section */
-#shop {
-    padding: 20px;
-    background: #1e1e1e;
-}
-
-#shop a {
-    color: #ff9800;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-#shop a:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
-footer {
-    background: #1e1e1e;
-    padding: 15px;
-    font-size: 14px;
-    }
 
 /* Hamburger Menu */
 .hamburger-menu {
@@ -236,4 +149,5 @@ footer {
 /* Show Menu When Active */
 .nav-menu.active {
     left: 0;
-}
+    }
+        
