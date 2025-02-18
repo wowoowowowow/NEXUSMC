@@ -83,6 +83,30 @@
             transform: rotate(-45deg) translate(5px, -5px);
         }
 
+        /* Navigation Menu */
+        #nav-menu {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background-color: #1e1e1e;
+            padding: 20px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #nav-menu a {
+            color: #ff9800;
+            text-decoration: none;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        #nav-menu a:hover {
+            text-decoration: underline;
+        }
+
         /* Rules Section */
         #rules {
             background: #222;
@@ -191,6 +215,14 @@
         <p>Server IP: <strong>PLAY.NEXUSMC.FUN</strong></p>
     </header>
 
+    <!-- Navigation Menu -->
+    <div id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="rules.html">Rules</a>
+        <a href="#contact">Contact</a>
+        <a href="#shop">Shop</a>
+    </div>
+
     <section id="rules">
         <h2>Server Rules</h2>
         <ul>
@@ -245,7 +277,9 @@
         // Toggle Hamburger menu
         function toggleMenu() {
             const menu = document.querySelector('.hamburger-menu');
+            const navMenu = document.getElementById('nav-menu');
             menu.classList.toggle('open');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
         }
     </script>
 </body>
