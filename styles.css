@@ -23,7 +23,7 @@ body {
 }
 
 .logo {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
     color: #ff9800;
     text-transform: uppercase;
@@ -38,13 +38,31 @@ body {
 
 .nav-links li {
     margin: 0 15px;
+    position: relative;
 }
 
 .nav-links li a {
     text-decoration: none;
     color: #fff;
     font-size: 18px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Animation Effect */
+.nav-links li::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff9800;
+    transition: width 0.3s ease-in-out;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.nav-links li:hover::after {
+    width: 100%;
 }
 
 .nav-links li a:hover {
@@ -61,40 +79,8 @@ header h1 {
     color: #ff9800;
 }
 
-header p {
-    font-size: 18px;
-}
-
-/* Portrait Section */
-#portrait {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-#portrait img {
-    max-width: 100%;
-    height: auto;
-    width: 300px;
-    border-radius: 10px;
-}
-
-@media (min-width: 768px) {
-    #portrait img {
-        width: 500px;
-    }
-}
-
-@media (min-width: 1024px) {
-    #portrait img {
-        width: 600px;
-    }
-}
-
-/* Section Titles */
-h2 {
-    color: #ff9800;
+.highlight {
+    color: #ffcc00;
 }
 
 /* Contact Form */
@@ -110,16 +96,10 @@ h2 {
     flex-direction: column;
 }
 
-#contact label {
-    text-align: left;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
 #contact input, #contact textarea {
     width: 100%;
     padding: 10px;
-    margin-top: 5px;
+    margin-top: 10px;
     border-radius: 5px;
     border: none;
     background: #333;
@@ -135,7 +115,7 @@ h2 {
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease-in-out;
 }
 
 #contact button:hover {
