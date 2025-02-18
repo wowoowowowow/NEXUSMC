@@ -8,67 +8,6 @@ body {
     text-align: center;
 }
 
-/* Navigation Menu */
-.nav-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #1e1e1e;
-    padding: 15px 20px;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff9800;
-    text-transform: uppercase;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-links li {
-    margin: 0 15px;
-    position: relative;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    transition: color 0.3s ease-in-out;
-}
-
-/* Animation Effect */
-.nav-links li::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #ff9800;
-    transition: width 0.3s ease-in-out;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-}
-
-.nav-links li:hover::after {
-    width: 100%;
-}
-
-.nav-links li a:hover {
-    color: #ff9800;
-}
-
 /* Header */
 header {
     background: #1e1e1e;
@@ -79,8 +18,77 @@ header h1 {
     color: #ff9800;
 }
 
-.highlight {
-    color: #ffcc00;
+header p {
+    font-size: 18px;
+}
+
+/* Portrait Section */
+#portrait {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#portrait img {
+    max-width: 100%;
+    height: auto;
+    width: 300px; /* Default size */
+    border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+    #portrait img {
+        width: 500px; /* Larger on tablets */
+    }
+}
+
+@media (min-width: 1024px) {
+    #portrait img {
+        width: 600px; /* Larger on desktops */
+    }
+}
+
+/* Section Titles */
+h2 {
+    color: #ff9800;
+}
+
+/* Grid Container for Minigames and Team */
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Minigames & Team Box */
+.box, .team-box {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 220px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.box:hover, .team-box:hover {
+    transform: scale(1.05);
+}
+
+.box img, .team-box img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.box h3, .team-box h3 {
+    margin-top: 10px;
+    color: #ff9800;
+}
+
+.team-box p {
+    color: #ccc;
 }
 
 /* Contact Form */
@@ -96,10 +104,16 @@ header h1 {
     flex-direction: column;
 }
 
+#contact label {
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
 #contact input, #contact textarea {
     width: 100%;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
     border-radius: 5px;
     border: none;
     background: #333;
@@ -115,17 +129,32 @@ header h1 {
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease;
 }
 
 #contact button:hover {
     background: #e68900;
 }
 
+/* Shop Section */
+#shop {
+    padding: 20px;
+    background: #1e1e1e;
+}
+
+#shop a {
+    color: #ff9800;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#shop a:hover {
+    text-decoration: underline;
+}
+
 /* Footer */
 footer {
     background: #1e1e1e;
-    padding: 10px;
+    padding: 15px;
     font-size: 14px;
-    margin-top: 30px;
 }
