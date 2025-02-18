@@ -1,5 +1,6 @@
 const devTeam = [
-    { name: "Trainereco", role: "Mc-Developer", image: "Images/trainereco.jpg" }
+    { name: "Trainereco", role: "Mc-Developer", image: "Images/trainereco.jpg" },
+    { name: "TheWolfBoy", role: "Mc-Developer", image: "Images/Wolf.jpg" }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
