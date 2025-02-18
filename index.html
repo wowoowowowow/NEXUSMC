@@ -6,10 +6,6 @@
     <title>NEXUSMC - Home</title>
     <link rel="stylesheet" href="styles.css">
     <script src="JS/script.js" defer></script>
-    <script src="JS/Leading-team.js" defer></script>
-    <script src="JS/minigames.js" defer></script>
-    <script src="JS/Dev-team.js" defer></script>
-    <script src="JS/Builder-team.js" defer></script>
 </head>
 <body>
 
@@ -28,7 +24,7 @@
     </nav>
 
     <header>
-        <h1>Welcome to NEXUSMC</h1>
+        <h1>Welcome to <span class="highlight">NEXUSMC</span></h1>
         <p>Server IP: <strong>PLAY.NEXUSMC.FUN</strong></p>
     </header>
 
@@ -46,40 +42,14 @@
         <div id="game-list" class="grid-container"></div>
     </section>
 
-    <section id="Leading-team">
-        <h2>Leading Team</h2>
-        <div id="team-members" class="grid-container"></div>
-    </section>
-
-    <section id="dev-team">
-        <h2>Development Team</h2>
-        <div id="dev-team-members" class="grid-container"></div>
-    </section>
-
-    <section id="building-team">
-        <h2>Builder Team</h2>
-        <div id="building-team-members" class="grid-container"></div>
-    </section>
-
     <section id="contact">
         <h2>Contact Us</h2>
         <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
-    </section>
-
-    <section id="shop">
-        <h2>Shop</h2>
-        <p>Support our server by visiting our shop: <a href="https://nexusmc-269.tebex.io/" target="_blank">NEXUSMC Store</a></p>
     </section>
 
     <footer>
@@ -87,4 +57,5 @@
     </footer>
 
 </body>
-</html>
+    </html>
+    
