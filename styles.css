@@ -6,12 +6,14 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Header */
 header {
     background: #1e1e1e;
     padding: 20px;
+    position: relative;
 }
 
 header h1 {
@@ -20,6 +22,57 @@ header h1 {
 
 header p {
     font-size: 18px;
+}
+
+/* Theme Button */
+.theme-toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #00ffcc;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle-btn:hover {
+    background-color: #00cc99;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.hamburger-menu .line {
+    width: 30px;
+    height: 5px;
+    background-color: #fff;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hamburger-menu.open .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.open .line2 {
+    opacity: 0;
+}
+
+.hamburger-menu.open .line3 {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Portrait Section */
@@ -35,18 +88,6 @@ header p {
     height: auto;
     width: 300px; /* Default size */
     border-radius: 10px;
-}
-
-@media (min-width: 768px) {
-    #portrait img {
-        width: 500px; /* Larger on tablets */
-    }
-}
-
-@media (min-width: 1024px) {
-    #portrait img {
-        width: 600px; /* Larger on desktops */
-    }
 }
 
 /* Section Titles */
