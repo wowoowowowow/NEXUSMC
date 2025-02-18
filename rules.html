@@ -3,79 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUSMC Rules</title>
+    <title>NEXUSMC - Rules</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
+        /* General Styles */
         body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
             margin: 0;
-            font-family: 'Press Start 2P', cursive;
+            padding: 0;
             text-align: center;
             transition: background-color 0.3s, color 0.3s;
         }
 
-        .container {
-            max-width: 800px;
-            margin: auto;
+        /* Header */
+        header {
+            background: #1e1e1e;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px #00ffcc;
-            transition: background 0.3s;
+            position: relative;
         }
 
-        h1 {
-            font-size: 32px;
-            text-shadow: 0 0 10px #00ffcc;
+        header h1 {
+            color: #ff9800;
         }
 
-        .rule {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            transition: transform 0.3s ease-in-out;
+        header p {
+            font-size: 18px;
         }
 
-        .rule:hover {
-            transform: scale(1.05);
-            background: rgba(0, 255, 204, 0.2);
-        }
-
-        footer {
-            margin-top: 20px;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* Dark Theme */
-        .dark-mode {
-            background-color: #0d0d0d;
-            color: #fff;
-        }
-
-        .dark-mode .container {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .dark-mode h1 {
-            color: #00ffcc;
-        }
-
-        /* Light Theme */
-        .light-mode {
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        .light-mode .container {
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .light-mode h1 {
-            color: #333;
-        }
-
+        /* Theme Button */
         .theme-toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             padding: 10px 20px;
             background-color: #00ffcc;
             border: none;
@@ -90,23 +50,159 @@
             background-color: #00cc99;
         }
 
+        /* Hamburger Menu */
+        .hamburger-menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .hamburger-menu .line {
+            width: 30px;
+            height: 5px;
+            background-color: #fff;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .hamburger-menu.open .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger-menu.open .line2 {
+            opacity: 0;
+        }
+
+        .hamburger-menu.open .line3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Rules Section */
+        #rules {
+            background: #222;
+            padding: 30px;
+        }
+
+        #rules h2 {
+            color: #ff9800;
+        }
+
+        #rules ul {
+            text-align: left;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #rules li {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        /* Contact Form */
+        #contact {
+            background: #222;
+            padding: 30px;
+        }
+
+        #contact form {
+            max-width: 400px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #contact label {
+            text-align: left;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        #contact input, #contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: none;
+            background: #333;
+            color: white;
+        }
+
+        #contact button {
+            margin-top: 15px;
+            padding: 10px;
+            background: #ff9800;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        #contact button:hover {
+            background: #e68900;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e1e1e;
+            padding: 15px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body class="dark-mode">
-
-    <div class="container">
-        <h1>NEXUSMC Rules</h1>
-        
-        <div class="rule">Soon</div>
-        
+    <header>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="line line1"></div>
+            <div class="line line2"></div>
+            <div class="line line3"></div>
+        </div>
+        <h1>Welcome to NEXUSMC - Rules</h1>
+        <p>Server IP: <strong>PLAY.NEXUSMC.FUN</strong></p>
         <button class="theme-toggle-btn" onclick="toggleTheme()">Switch to Light Mode</button>
-        
-        <footer>
-            © 2025 NEXUSMC | PLAY.NEXUSMC.FUN
-        </footer>
-    </div>
+    </header>
+
+    <section id="rules">
+        <h2>Server Rules</h2>
+        <ul>
+            <li><strong>Respect Others:</strong> Treat all players and staff with respect. No hate speech, harassment, or inappropriate language.</li>
+            <li><strong>No Cheating or Hacking:</strong> Cheating or using unauthorized mods, hacks, or exploits will result in a ban.</li>
+            <li><strong>No Griefing:</strong> Do not destroy other players' builds or ruin their experience.</li>
+            <li><strong>No Spamming:</strong> Do not spam messages in chat, or advertisements.</li>
+            <li><strong>Follow Staff Instructions:</strong> Always follow the instructions of staff members. Disobeying will lead to consequences.</li>
+            <li><strong>Be Fair:</strong> No exploiting bugs or glitches to gain an unfair advantage.</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 NEXUSMC. All Rights Reserved.</p>
+    </footer>
 
     <script>
+        // Toggle Light/Dark theme
         function toggleTheme() {
             const body = document.body;
             const btn = document.querySelector('.theme-toggle-btn');
@@ -121,7 +217,12 @@
                 btn.textContent = 'Switch to Light Mode';
             }
         }
-    </script>
 
+        // Toggle Hamburger menu
+        function toggleMenu() {
+            const menu = document.querySelector('.hamburger-menu');
+            menu.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
