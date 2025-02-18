@@ -6,39 +6,37 @@
     <title>NEXUSMC - Home</title>
     <link rel="stylesheet" href="styles.css">
     <script src="JS/script.js" defer></script>
-    <script src="JS/Leading-team.js" defer></script> <!-- Transpile team.ts to team.js -->
+    <script src="JS/Leading-team.js" defer></script>
     <script src="JS/minigames.js" defer></script>
     <script src="JS/Dev-team.js" defer></script>
     <script src="JS/Builder-team.js" defer></script>
 </head>
 <body>
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#minigames">Minigames</a></li>
+                <li><a href="#Leading-team">Leading Team</a></li>
+                <li><a href="#dev-team">Development Team</a></li>
+                <li><a href="#building-team">Builder Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#shop">Shop</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <header>
         <h1>Welcome to NEXUSMC</h1>
         <p>Server IP: <strong>PLAY.NEXUSMC.FUN</strong></p>
     </header>
 
-    <header>
-        <!-- Hamburger Menu -->
-<div class="hamburger-menu">
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <nav class="nav-menu" id="nav-menu">
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#minigames">Minigames</a></li>
-            <li><a href="#Leading-team">Leading Team</a></li>
-            <li><a href="#dev-team">Development Team</a></li>
-            <li><a href="#building-team">Builder Team</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#shop">Shop</a></li>
-        </ul>
-    </nav>
-                                                  </div>
-        
-    </header>
     <section id="portrait">
         <img src="Images/nexus_mc_rdx_logo.png" alt="NEXUSMC Logo">
     </section>
@@ -55,21 +53,18 @@
 
     <section id="Leading-team">
         <h2>Leading Team</h2>
-        <div id="team-members" class="grid-container">
-            <!-- Team members will be added dynamically -->
-        </div>
+        <div id="team-members" class="grid-container"></div>
     </section>
 
     <section id="dev-team">
-    <h2>Development Team</h2>
-    <div id="dev-team-members" class="grid-container"></div>
+        <h2>Development Team</h2>
+        <div id="dev-team-members" class="grid-container"></div>
     </section>
 
     <section id="building-team">
-    <h2>Builder Team</h2>
-    <div id="building-team-members" class="grid-container"></div>
+        <h2>Builder Team</h2>
+        <div id="building-team-members" class="grid-container"></div>
     </section>
-    
 
     <section id="contact">
         <h2>Contact Us</h2>
@@ -96,4 +91,4 @@
         <p>&copy; 2025 NEXUSMC. All Rights Reserved.</p>
     </footer>
 </body>
-  </html>
+</html>
