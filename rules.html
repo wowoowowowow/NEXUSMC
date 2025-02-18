@@ -1,1 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUSMC Rules</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+        body {
+            margin: 0;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #00ffcc;
+            transition: background 0.3s;
+        }
+
+        h1 {
+            font-size: 32px;
+            text-shadow: 0 0 10px #00ffcc;
+        }
+
+        .rule {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .rule:hover {
+            transform: scale(1.05);
+            background: rgba(0, 255, 204, 0.2);
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Dark Theme */
+        .dark-mode {
+            background-color: #0d0d0d;
+            color: #fff;
+        }
+
+        .dark-mode .container {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .dark-mode h1 {
+            color: #00ffcc;
+        }
+
+        /* Light Theme */
+        .light-mode {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .light-mode .container {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .light-mode h1 {
+            color: #333;
+        }
+
+        .theme-toggle-btn {
+            padding: 10px 20px;
+            background-color: #00ffcc;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle-btn:hover {
+            background-color: #00cc99;
+        }
+
+    </style>
+</head>
+<body class="dark-mode">
+
+    <div class="container">
+        <h1>NEXUSMC Rules</h1>
+        
+        <div class="rule">**💥 No Crystal PvP**
+**❌ No using crystals to kill other players!**
+**We want fair, fun battles – no exploits! ⚔️💣**
+
+**🚫 No Going to the End Until "The End Wars"**
+**🚀 Let’s keep it grounded for now! No heading to The End until the Big End Wars! 🌍**
+
+**🛑 No Glitch Abuse**
+**⚠️ No exploiting glitches to get ahead! Play fair, and keep the fun in survival! 🙅‍♂️🚫**
+
+**❌ No Mods That Give Unfair Advantage**
+**👾 Mods like Freecam, World/Minimaps,Tweakeroo etc... are banned! Only the pure survival experience! Keep it fair! ✋💻**
+
+**👿 No Spawn Killing**
+**💀 Don’t camp spawn and kill players as they respawn! Let's keep it friendly! 🌱🤗**
+
+**😴 No AFK Farming, we Want it Fair and Square for Everyone and No Money Grows on Trees Here.🌱💸**
+
+**🚫 No Spamming Or Flooding (Mute for 24h)**
+**📝 Spamming Or Flooding chat will get you muted for 24 hours! Let’s keep the chat clean and fun! 🕊️💬**
+
+**💬 No Swearing**
+**🚫 Let’s keep the language respectful! No swearing or toxic talk. Keep it friendly and fun for everyone! 🌟💕**
+
+**⚡ No Duping in Any Case**
+**🛑 Duping is strictly forbidden! It ruins the economy and the challenge of survival! 🔧💥
+**
+**🗣️  Be Respectful, Don’t Annoy Anyone**
+**😇 Be kind to others! Respect everyone’s space, and don’t be a troll! ✋😄 **
+
+**🎰 No Gambling or Betting (Real Money)**
+**💸 No gambling with real money or valuable items! Let’s keep it fun without risk! 🚫💵**
+
+**👮‍♂️ Respect ALL Staff and Members**
+**Mods and admins are here to help! Respect them – they have lives, too, and they’re doing their best to keep the server running smoothly! ❤️👑**
+
+**🚫 No Very Racist or Gay Jokes (⚪  > 🟤 & 🏳️‍🌈  = 😂) = BANNED FOR 24 HOURS **
+**You can do jokes but if they are more racist or gay than usual jokes you will be punished**
+**(It will be judged by staff)**</div>
+        
+        <button class="theme-toggle-btn" onclick="toggleTheme()">Switch to Light Mode</button>
+        
+        <footer>
+            © 2025 NEXUSMC | PLAY.NEXUSMC.FUN
+        </footer>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.querySelector('.theme-toggle-btn');
+
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                btn.textContent = 'Switch to Dark Mode';
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                btn.textContent = 'Switch to Light Mode';
+            }
+        }
+    </script>
+
+</body>
+</html>
