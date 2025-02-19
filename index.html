@@ -4,14 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEXUSMC - Home</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="JS/script.js" defer></script>
+
     <script src="JS/Leading-team.js" defer></script>
     <script src="JS/minigames.js" defer></script>
     <script src="JS/Dev-team.js" defer></script>
     <script src="JS/Builder-team.js" defer></script>
     <script src="JS/Partners.js" defer></script>
+
     <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: white;
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Light Mode */
+        body.light-mode {
+            background: white;
+            color: black;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ff9800;
+        }
+
         /* Hamburger Menu */
         .hamburger-menu {
             position: fixed;
@@ -29,8 +55,21 @@
         .hamburger-menu div {
             width: 100%;
             height: 5px;
-            background-color: #fff;
+            background-color: white;
             transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* When menu is open, turn into "X" */
+        .hamburger-menu.open div:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .hamburger-menu.open div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.open div:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
         }
 
         /* Navigation Menu */
@@ -84,15 +123,9 @@
         .theme-toggle-btn:hover {
             background: #e68900;
         }
-
-        /* Light Mode */
-        .light-mode {
-            background: white;
-            color: black;
-        }
     </style>
 </head>
-<body class="dark-mode">
+<body>
 
     <header>
         <!-- Hamburger Menu -->
@@ -119,51 +152,46 @@
 
     <script>
         // Toggle Hamburger Menu
-function toggleMenu() {
-    const navMenu = document.getElementById('nav-menu');
-    const hamburger = document.querySelector('.hamburger-menu');
-    navMenu.classList.toggle('show-menu');
-    hamburger.classList.toggle('open');
-}
-
-// Theme Toggle
-document.addEventListener("DOMContentLoaded", () => {
-    const themeToggleBtn = document.getElementById("theme-toggle");
-    const body = document.body;
-
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-        body.classList.add(savedTheme);
-        updateThemeButton(savedTheme);
-    }
-
-    themeToggleBtn.addEventListener("click", () => {
-        body.classList.toggle("light-mode");
-
-        // Save preference to localStorage
-        if (body.classList.contains("light-mode")) {
-            localStorage.setItem("theme", "light-mode");
-            updateThemeButton("light-mode");
-        } else {
-            localStorage.setItem("theme", "dark-mode");
-            updateThemeButton("dark-mode");
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            const hamburger = document.querySelector('.hamburger-menu');
+            navMenu.classList.toggle('show-menu');
+            hamburger.classList.toggle('open');
         }
-    });
 
-    function updateThemeButton(mode) {
-        if (mode === "light-mode") {
-            body.style.backgroundColor = "#ffffff";
-            body.style.color = "#000000";
-            themeToggleBtn.textContent = "Dark Mode";
-        } else {
-            body.style.backgroundColor = "#121212";
-            body.style.color = "#ffffff";
-            themeToggleBtn.textContent = "Light Mode";
-        }
-    }
-});
-        
+        // Theme Toggle
+        document.addEventListener("DOMContentLoaded", () => {
+            const themeToggleBtn = document.getElementById("theme-toggle");
+            const body = document.body;
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+                updateThemeButton(savedTheme);
+            }
+
+            themeToggleBtn.addEventListener("click", () => {
+                body.classList.toggle("light-mode");
+
+                // Save preference to localStorage
+                if (body.classList.contains("light-mode")) {
+                    localStorage.setItem("theme", "light-mode");
+                    updateThemeButton("light-mode");
+                } else {
+                    localStorage.setItem("theme", "dark-mode");
+                    updateThemeButton("dark-mode");
+                }
+            });
+
+            function updateThemeButton(mode) {
+                if (mode === "light-mode") {
+                    themeToggleBtn.textContent = "Dark Mode";
+                } else {
+                    themeToggleBtn.textContent = "Light Mode";
+                }
+            }
+        });
     </script>
 
     <h1>Welcome to NEXUSMC</h1>
@@ -185,9 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <section id="Leading-team">
         <h2>Leading Team</h2>
-        <div id="team-members" class="grid-container">
-            <!-- Team members will be added dynamically -->
-        </div>
+        <div id="team-members" class="grid-container"></div>
     </section>
 
     <section id="dev-team">
@@ -229,5 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <footer>
         <p>&copy; 2025 NEXUSMC. All Rights Reserved.</p>
     </footer>
+
 </body>
-</html>
+            </html>
+            
