@@ -14,8 +14,129 @@
 </head>
 <body class="dark-mode">
     <header>
-         
-   
+   <style>      
+   /* Hamburger Menu */
+        .hamburger-menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 35px;
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .hamburger-menu div {
+            width: 100%;
+            height: 5px;
+            background-color: #fff;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Navigation Menu */
+        #nav-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(30, 30, 30, 0.95);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        #nav-menu a {
+            color: #ff9800;
+            text-decoration: none;
+            font-size: 22px;
+            margin: 15px;
+            display: block;
+        }
+
+        #nav-menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px;
+            background-color: #00ffcc;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            background-color: #00cc99;
+        }
+
+    </style>
+</head>
+<body class="dark-mode">
+
+    <header>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <h1>NEXUSMC - Rules</h1>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="rules.html">Rules</a>
+        <a href="#contact">Contact</a>
+        <a href="#shop">Shop</a>
+        <a href="#partners">Partner</a>
+        <a href="javascript:void(0);" onclick="toggleMenu()">Close Menu</a>
+    </nav>
+
+    <button class="theme-toggle-btn" onclick="toggleTheme()">Switch Theme</button>
+
+    <script>
+        // Toggle Hamburger Menu
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            if (navMenu.style.display === 'flex') {
+                navMenu.style.display = 'none';
+            } else {
+                navMenu.style.display = 'flex';
+            }
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.querySelector('.theme-toggle-btn');
+
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                body.style.backgroundColor = "#fff";
+                body.style.color = "#000";
+                btn.textContent = 'Switch to Dark Mode';
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                body.style.backgroundColor = "#121212";
+                body.style.color = "#fff";
+                btn.textContent = 'Switch to Light Mode';
+            }
+        }
+            </script>
 
         
         <h1>Welcome to NEXUSMC</h1>
