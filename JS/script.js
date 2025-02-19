@@ -1,38 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("contact-form").addEventListener("submit", async function(event) {
-        event.preventDefault();
-        const formData = new FormData(this);
-        const response = await fetch("/send-message", {
-            method: "POST",
-            body: formData
-        });
+    // Hamburger Menu Toggle
+    const hamburger = document.querySelector(".hamburger-menu");
+    const navMenu = document.getElementById("nav-menu");
 
-        if (response.ok) {
-            alert("Message sent!");
+    hamburger.addEventListener("click", () => {
+        navMenu.style.display = (navMenu.style.display === "flex") ? "none" : "flex";
+
+        // Toggle Hamburger Icon to "X"
+        const lines = hamburger.querySelectorAll("div");
+        if (navMenu.style.display === "flex") {
+            lines[0].style.transform = "rotate(45deg) translate(5px, 5px)";
+            lines[1].style.opacity = "0";
+            lines[2].style.transform = "rotate(-45deg) translate(5px, -5px)";
         } else {
-            alert("Failed to send message.");
+            lines[0].style.transform = "";
+            lines[1].style.opacity = "1";
+            lines[2].style.transform = "";
+        }
+    });
+
+    // Dark/Light Mode Toggle
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    themeToggleBtn.addEventListener("click", () => {
+        body.classList.toggle("light-mode");
+
+        if (body.classList.contains("light-mode")) {
+            body.style.backgroundColor = "#ffffff";
+            body.style.color = "#000000";
+            themeToggleBtn.textContent = "Dark Mode";
+        } else {
+            body.style.backgroundColor = "#121212";
+            body.style.color = "#ffffff";
+            themeToggleBtn.textContent = "Light Mode";
         }
     });
 });
-
-// Toggle Light/Dark theme
-function toggleTheme() {
-    const body = document.body;
-    const btn = document.querySelector('.theme-toggle-btn');
-
-    if (body.classList.contains('dark-mode')) {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-        btn.textContent = 'Switch to Dark Mode';
-    } else {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-        btn.textContent = 'Switch to Light Mode';
-    }
-}
-
-// Toggle Hamburger menu
-function toggleMenu() {
-    const menu = document.querySelector('.hamburger-menu');
-    menu.classList.toggle('open');
-}
