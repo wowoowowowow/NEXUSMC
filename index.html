@@ -119,48 +119,51 @@
 
     <script>
         // Toggle Hamburger Menu
-        function toggleMenu() {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.toggle('show-menu');
+function toggleMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    const hamburger = document.querySelector('.hamburger-menu');
+    navMenu.classList.toggle('show-menu');
+    hamburger.classList.toggle('open');
+}
+
+// Theme Toggle
+document.addEventListener("DOMContentLoaded", () => {
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+        updateThemeButton(savedTheme);
+    }
+
+    themeToggleBtn.addEventListener("click", () => {
+        body.classList.toggle("light-mode");
+
+        // Save preference to localStorage
+        if (body.classList.contains("light-mode")) {
+            localStorage.setItem("theme", "light-mode");
+            updateThemeButton("light-mode");
+        } else {
+            localStorage.setItem("theme", "dark-mode");
+            updateThemeButton("dark-mode");
         }
+    });
 
-        // Theme Toggle
-        document.addEventListener("DOMContentLoaded", () => {
-            const themeToggleBtn = document.getElementById("theme-toggle");
-            const body = document.body;
-
-            // Check for saved theme preference
-            const savedTheme = localStorage.getItem("theme");
-            if (savedTheme) {
-                body.classList.add(savedTheme);
-                updateThemeButton(savedTheme);
-            }
-
-            themeToggleBtn.addEventListener("click", () => {
-                body.classList.toggle("light-mode");
-
-                // Save preference to localStorage
-                if (body.classList.contains("light-mode")) {
-                    localStorage.setItem("theme", "light-mode");
-                    updateThemeButton("light-mode");
-                } else {
-                    localStorage.setItem("theme", "dark-mode");
-                    updateThemeButton("dark-mode");
-                }
-            });
-
-            function updateThemeButton(mode) {
-                if (mode === "light-mode") {
-                    body.style.backgroundColor = "#ffffff";
-                    body.style.color = "#000000";
-                    themeToggleBtn.textContent = "Dark Mode";
-                } else {
-                    body.style.backgroundColor = "#121212";
-                    body.style.color = "#ffffff";
-                    themeToggleBtn.textContent = "Light Mode";
-                }
-            }
-        });
+    function updateThemeButton(mode) {
+        if (mode === "light-mode") {
+            body.style.backgroundColor = "#ffffff";
+            body.style.color = "#000000";
+            themeToggleBtn.textContent = "Dark Mode";
+        } else {
+            body.style.backgroundColor = "#121212";
+            body.style.color = "#ffffff";
+            themeToggleBtn.textContent = "Light Mode";
+        }
+    }
+});
+        
     </script>
 
     <h1>Welcome to NEXUSMC</h1>
