@@ -11,13 +11,10 @@
     <script src="JS/Dev-team.js" defer></script>
     <script src="JS/Builder-team.js" defer></script>
     <script src="JS/Partners.js" defer></script>
-</head>
-<body class="dark-mode">
-    <header>
-   <style>      
-   /* Hamburger Menu */
+    <style>
+        /* Hamburger Menu */
         .hamburger-menu {
-            position: absolute;
+            position: fixed;
             top: 20px;
             left: 20px;
             width: 35px;
@@ -26,6 +23,7 @@
             flex-direction: column;
             justify-content: space-between;
             cursor: pointer;
+            z-index: 1000;
         }
 
         .hamburger-menu div {
@@ -39,15 +37,20 @@
         #nav-menu {
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: -250px;
+            width: 250px;
             height: 100vh;
             background: rgba(30, 30, 30, 0.95);
-            display: none;
+            display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            z-index: 100;
+            padding-top: 50px;
+            transition: left 0.3s ease-in-out;
+            z-index: 999;
+        }
+
+        #nav-menu.show-menu {
+            left: 0;
         }
 
         #nav-menu a {
@@ -62,17 +65,41 @@
             text-decoration: underline;
         }
 
-        
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff9800;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            z-index: 1000;
+        }
 
+        .theme-toggle-btn:hover {
+            background: #e68900;
+        }
+
+        /* Light Mode */
+        .light-mode {
+            background: white;
+            color: black;
+        }
     </style>
 </head>
 <body class="dark-mode">
 
     <header>
+        <!-- Hamburger Menu -->
         <div class="hamburger-menu" onclick="toggleMenu()">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
         <h1>NEXUSMC</h1>
     </header>
@@ -87,45 +114,57 @@
         <a href="javascript:void(0);" onclick="toggleMenu()">Close Menu</a>
     </nav>
 
-    <button class="theme-toggle-btn" onclick="toggleTheme()">Switch Theme</button>
+    <!-- Theme Switcher Button -->
+    <button id="theme-toggle" class="theme-toggle-btn">Switch Theme</button>
 
     <script>
         // Toggle Hamburger Menu
         function toggleMenu() {
             const navMenu = document.getElementById('nav-menu');
-            if (navMenu.style.display === 'flex') {
-                navMenu.style.display = 'none';
-            } else {
-                navMenu.style.display = 'flex';
-            }
+            navMenu.classList.toggle('show-menu');
         }
 
         // Theme Toggle
-        function toggleTheme() {
+        document.addEventListener("DOMContentLoaded", () => {
+            const themeToggleBtn = document.getElementById("theme-toggle");
             const body = document.body;
-            const btn = document.querySelector('.theme-toggle-btn');
 
-            if (body.classList.contains('dark-mode')) {
-                body.classList.remove('dark-mode');
-                body.classList.add('light-mode');
-                body.style.backgroundColor = "#fff";
-                body.style.color = "#000";
-                btn.textContent = 'Switch to Dark Mode';
-            } else {
-                body.classList.remove('light-mode');
-                body.classList.add('dark-mode');
-                body.style.backgroundColor = "#121212";
-                body.style.color = "#fff";
-                btn.textContent = 'Switch to Light Mode';
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+                updateThemeButton(savedTheme);
             }
-        }
-            </script>
 
-        
-        <h1>Welcome to NEXUSMC</h1>
-        <p>Server IP: <strong>PLAY.NEXUSMC.FUN</strong></p>
-        <button class="theme-toggle-btn" onclick="toggleTheme()">Switch to Light Mode</button>
-    </header>
+            themeToggleBtn.addEventListener("click", () => {
+                body.classList.toggle("light-mode");
+
+                // Save preference to localStorage
+                if (body.classList.contains("light-mode")) {
+                    localStorage.setItem("theme", "light-mode");
+                    updateThemeButton("light-mode");
+                } else {
+                    localStorage.setItem("theme", "dark-mode");
+                    updateThemeButton("dark-mode");
+                }
+            });
+
+            function updateThemeButton(mode) {
+                if (mode === "light-mode") {
+                    body.style.backgroundColor = "#ffffff";
+                    body.style.color = "#000000";
+                    themeToggleBtn.textContent = "Dark Mode";
+                } else {
+                    body.style.backgroundColor = "#121212";
+                    body.style.color = "#ffffff";
+                    themeToggleBtn.textContent = "Light Mode";
+                }
+            }
+        });
+    </script>
+
+    <h1>Welcome to NEXUSMC</h1>
+    <p>Server IP: <strong>PLAY.NEXUSMC.FUN</strong></p>
 
     <section id="portrait">
         <img src="Images/nexus_mc_rdx_logo.png" alt="NEXUSMC Logo">
@@ -149,18 +188,18 @@
     </section>
 
     <section id="dev-team">
-    <h2>Development Team</h2>
-    <div id="dev-team-members" class="grid-container"></div>
+        <h2>Development Team</h2>
+        <div id="dev-team-members" class="grid-container"></div>
     </section>
 
     <section id="building-team">
-    <h2>Builder Team</h2>
-    <div id="building-team-members" class="grid-container"></div>
+        <h2>Builder Team</h2>
+        <div id="building-team-members" class="grid-container"></div>
     </section>
 
     <section id="partner-team">
-    <h2>Partners</h2>
-    <div id="partner-team-members" class="grid-container"></div>
+        <h2>Partners</h2>
+        <div id="partner-team-members" class="grid-container"></div>
     </section>
 
     <section id="contact">
