@@ -1,4 +1,5 @@
 const devTeam = [
+    { name: "Snitchboss", role: "Web-developer", image: "Images/Snitch.jpg" },
     { name: "Trainereco", role: "Mc-Developer", image: "Images/trainereco.jpg" },
     { name: "TheWolfBoy", role: "Mc-Plugin-Developer", image: "Images/Wolf.jpg" }
 ];
