@@ -2,24 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // Hamburger Menu Toggle
     const hamburger = document.querySelector(".hamburger-menu");
     const navMenu = document.getElementById("nav-menu");
+    const closeMenu = document.getElementById("close-menu");
 
     hamburger.addEventListener("click", () => {
-        navMenu.style.display = (navMenu.style.display === "flex") ? "none" : "flex";
+        navMenu.classList.toggle("show-menu");
 
         // Toggle Hamburger Icon to "X"
-        const lines = hamburger.querySelectorAll("div");
-        if (navMenu.style.display === "flex") {
-            lines[0].style.transform = "rotate(45deg) translate(5px, 5px)";
-            lines[1].style.opacity = "0";
-            lines[2].style.transform = "rotate(-45deg) translate(5px, -5px)";
-        } else {
-            lines[0].style.transform = "";
-            lines[1].style.opacity = "1";
-            lines[2].style.transform = "";
-        }
+        hamburger.classList.toggle("active");
     });
 
-    // Dark/Light Mode Toggle
+    closeMenu.addEventListener("click", () => {
+        navMenu.classList.remove("show-menu");
+        hamburger.classList.remove("active");
+    });
+
+    // Theme Toggle Button
     const themeToggleBtn = document.getElementById("theme-toggle");
     const body = document.body;
 
