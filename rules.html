@@ -27,238 +27,108 @@
             color: #ff9800;
         }
 
-        header p {
-            font-size: 18px;
-        }
-
-        /* Theme Button (Floating) */
-        .theme-toggle-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            background-color: #00ffcc;
-            border: none;
-            color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.3s;
-        }
-
-        .theme-toggle-btn:hover {
-            background-color: #00cc99;
-        }
-
         /* Hamburger Menu */
         .hamburger-menu {
             position: absolute;
             top: 20px;
             left: 20px;
+            width: 35px;
+            height: 30px;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 25px;
+            justify-content: space-between;
             cursor: pointer;
         }
 
-        .hamburger-menu .line {
-            width: 30px;
+        .hamburger-menu div {
+            width: 100%;
             height: 5px;
             background-color: #fff;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .hamburger-menu.open .line1 {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .hamburger-menu.open .line2 {
-            opacity: 0;
-        }
-
-        .hamburger-menu.open .line3 {
-            transform: rotate(-45deg) translate(5px, -5px);
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         /* Navigation Menu */
         #nav-menu {
-            position: absolute;
-            top: 80px;
+            position: fixed;
+            top: 0;
             left: 0;
-            right: 0;
-            background-color: #1e1e1e;
-            padding: 20px;
+            width: 100%;
+            height: 100vh;
+            background: rgba(30, 30, 30, 0.95);
             display: none;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            z-index: 100;
         }
 
         #nav-menu a {
             color: #ff9800;
             text-decoration: none;
-            margin: 10px 0;
-            font-size: 18px;
+            font-size: 22px;
+            margin: 15px;
+            display: block;
         }
 
         #nav-menu a:hover {
             text-decoration: underline;
         }
 
-        /* Rules Section */
-        #rules {
-            background: #222;
-            padding: 30px;
-        }
-
-        #rules h2 {
-            color: #ff9800;
-        }
-
-        #rules ul {
-            text-align: left;
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #rules li {
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-
-        /* Contact Form */
-        #contact {
-            background: #222;
-            padding: 30px;
-        }
-
-        #contact form {
-            max-width: 400px;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-        }
-
-        #contact label {
-            text-align: left;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        #contact input, #contact textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: none;
-            background: #333;
-            color: white;
-        }
-
-        #contact button {
-            margin-top: 15px;
-            padding: 10px;
-            background: #ff9800;
-            border: none;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        #contact button:hover {
-            background: #e68900;
-        }
-
-        /* Footer */
-        footer {
-            background: #1e1e1e;
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
             padding: 15px;
-            font-size: 14px;
+            background-color: #00ffcc;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
         }
 
-        /* Light Mode Styles */
-        .light-mode {
-            background-color: #fff;
-            color: #000;
+        .theme-toggle-btn:hover {
+            background-color: #00cc99;
         }
 
-        .light-mode header {
-            background-color: #f4f4f4;
-        }
-
-        .light-mode #rules {
-            background-color: #f9f9f9;
-        }
-
-        .light-mode #contact {
-            background-color: #f9f9f9;
-        }
-
-        .light-mode footer {
-            background-color: #f4f4f4;
-        }
     </style>
 </head>
 <body class="dark-mode">
+
     <header>
         <div class="hamburger-menu" onclick="toggleMenu()">
-            <div class="line line1"></div>
-            <div class="line line2"></div>
-            <div class="line line3"></div>
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
         </div>
-        <h1>Welcome to NEXUSMC - Rules</h1>
-        <p>Server IP: <strong>PLAY.NEXUSMC.FUN</strong></p>
+        <h1>NEXUSMC - Rules</h1>
     </header>
 
     <!-- Navigation Menu -->
-    <div id="nav-menu">
+    <nav id="nav-menu">
         <a href="index.html">Home</a>
         <a href="rules.html">Rules</a>
         <a href="#contact">Contact</a>
         <a href="#shop">Shop</a>
-    </div>
+        <a href="javascript:void(0);" onclick="toggleMenu()">Close Menu</a>
+    </nav>
 
-    <section id="rules">
-        <h2>Server Rules</h2>
-        <ul>
-            <li><strong>Respect Others:</strong> Treat all players and staff with respect. No hate speech, harassment, or inappropriate language.</li>
-            <li><strong>No Cheating or Hacking:</strong> Cheating or using unauthorized mods, hacks, or exploits will result in a ban.</li>
-            <li><strong>No Griefing:</strong> Do not destroy other players' builds or ruin their experience.</li>
-            <li><strong>No Spamming:</strong> Do not spam messages in chat, or advertisements.</li>
-            <li><strong>Follow Staff Instructions:</strong> Always follow the instructions of staff members. Disobeying will lead to consequences.</li>
-            <li><strong>Be Fair:</strong> No exploiting bugs or glitches to gain an unfair advantage.</li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 NEXUSMC. All Rights Reserved.</p>
-    </footer>
-
-    <button class="theme-toggle-btn" onclick="toggleTheme()">Switch to Light Mode</button>
+    <button class="theme-toggle-btn" onclick="toggleTheme()">Switch Theme</button>
 
     <script>
-        // Toggle Light/Dark theme
+        // Toggle Hamburger Menu
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            if (navMenu.style.display === 'flex') {
+                navMenu.style.display = 'none';
+            } else {
+                navMenu.style.display = 'flex';
+            }
+        }
+
+        // Theme Toggle
         function toggleTheme() {
             const body = document.body;
             const btn = document.querySelector('.theme-toggle-btn');
@@ -266,21 +136,18 @@
             if (body.classList.contains('dark-mode')) {
                 body.classList.remove('dark-mode');
                 body.classList.add('light-mode');
+                body.style.backgroundColor = "#fff";
+                body.style.color = "#000";
                 btn.textContent = 'Switch to Dark Mode';
             } else {
                 body.classList.remove('light-mode');
                 body.classList.add('dark-mode');
+                body.style.backgroundColor = "#121212";
+                body.style.color = "#fff";
                 btn.textContent = 'Switch to Light Mode';
             }
         }
-
-        // Toggle Hamburger menu
-        function toggleMenu() {
-            const menu = document.querySelector('.hamburger-menu');
-            const navMenu = document.getElementById('nav-menu');
-            menu.classList.toggle('open');
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-        }
     </script>
+
 </body>
 </html>
