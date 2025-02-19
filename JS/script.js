@@ -1,54 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Hamburger Menu Toggle
-    const hamburger = document.querySelector(".hamburger-menu");
-    const navMenu = document.getElementById("nav-menu");
-    const closeMenu = document.getElementById("close-menu");
+    document.getElementById("contact-form").addEventListener("submit", async function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        const response = await fetch("/send-message", {
+            method: "POST",
+            body: formData
+        });
 
-    hamburger.addEventListener("click", () => {
-        navMenu.classList.toggle("show-menu");
-
-        // Toggle Hamburger Icon to "X"
-        hamburger.classList.toggle("active");
-    });
-
-    closeMenu.addEventListener("click", () => {
-        navMenu.classList.remove("show-menu");
-        hamburger.classList.remove("active");
-    });
-
-    // Theme Toggle Button
-    const themeToggleBtn = document.getElementById("theme-toggle");
-    const body = document.body;
-
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-        body.classList.add(savedTheme);
-        updateThemeButton(savedTheme);
-    }
-
-    themeToggleBtn.addEventListener("click", () => {
-        body.classList.toggle("light-mode");
-
-        // Save preference to localStorage
-        if (body.classList.contains("light-mode")) {
-            localStorage.setItem("theme", "light-mode");
-            updateThemeButton("light-mode");
+        if (response.ok) {
+            alert("Message sent!");
         } else {
-            localStorage.setItem("theme", "dark-mode");
-            updateThemeButton("dark-mode");
+            alert("Failed to send message.");
         }
     });
-
-    function updateThemeButton(mode) {
-        if (mode === "light-mode") {
-            body.style.backgroundColor = "#ffffff";
-            body.style.color = "#000000";
-            themeToggleBtn.textContent = "Dark Mode";
-        } else {
-            body.style.backgroundColor = "#121212";
-            body.style.color = "#ffffff";
-            themeToggleBtn.textContent = "Light Mode";
-        }
-    }
 });
+
+// Toggle Light/Dark theme
+function toggleTheme() {
+    const body = document.body;
+    const btn = document.querySelector('.theme-toggle-btn');
+
+    if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        btn.textContent = 'Switch to Dark Mode';
+    } else {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        btn.textContent = 'Switch to Light Mode';
+    }
+}
+
+// Toggle Hamburger menu
+function toggleMenu() {
+    const menu = document.querySelector('.hamburger-menu');
+    menu.classList.toggle('open');
+}
