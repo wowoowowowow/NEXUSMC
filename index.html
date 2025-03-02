@@ -21,6 +21,11 @@
         body {
             background: #1a1a2e;
             color: white;
+            transition: background 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background: white;
+            color: black;
         }
         .navbar {
             display: flex;
@@ -82,6 +87,29 @@
                 display: flex;
             }
         }
+        /* Light/Dark Mode Button */
+        #mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: #007bff;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, transform 0.2s;
+        }
+        #mode-toggle:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -97,14 +125,40 @@
         </ul>
         <div class="menu-toggle">☰</div>
     </nav>
+
+    <button id="mode-toggle">🌙</button>
+
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
+        const toggleButton = document.getElementById("mode-toggle");
+        const body = document.body;
+
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
+        // Check if user has a preferred mode saved
+        if (localStorage.getItem("theme") === "dark") {
+            body.classList.add("dark-mode");
+            toggleButton.textContent = "☀️"; // Sun emoji for light mode
+        }
+
+        // Toggle function
+        toggleButton.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+
+            // Change button icon and save user preference
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                toggleButton.textContent = "☀️"; // Sun emoji
+            } else {
+                localStorage.setItem("theme", "light");
+                toggleButton.textContent = "🌙"; // Moon emoji
+            }
+        });
     </script>
-    
+
     <section id="portrait">
         <img src="Images/nexus_mc_rdx_logo.png" alt="NEXUSMC Logo">
     </section>
@@ -135,8 +189,8 @@
     </section>
 
     <section id="partner-team">
-    <h2>Partners</h2>
-    <div id="partner-team-members" class="grid-container"></div>
+        <h2>Partners</h2>
+        <div id="partner-team-members" class="grid-container"></div>
     </section>
 
     <section id="contact">
@@ -161,5 +215,4 @@
         <p>&copy; 2025 NEXUSMC. All Rights Reserved.</p>
     </footer>
 </body>
-            </html>
-    
+</html>
