@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUSMC - Home</title>
-    
-    <!-- Favicon -->
+    <title>NEXUSMC - Home</title
+
+  !-- Favicon -->
     <link rel="icon" type="image/png" href="Images/nexus_mc_rdx_logo.png">
 
     <!-- Open Graph (Discord Embed) -->
@@ -14,7 +14,7 @@
     <meta property="og:image" content="https://nexusmc.fun/Images/nexus_mc_rdx_logo.png">
     <meta property="og:url" content="https://nexusmc.fun">
     <meta name="theme-color" content="#FFC107">
-
+    
     <link rel="stylesheet" href="styles.css">
     <script src="JS/script.js" defer></script>
     <script src="JS/Leading-team.js" defer></script>
@@ -22,7 +22,6 @@
     <script src="JS/Dev-team.js" defer></script>
     <script src="JS/Builder-team.js" defer></script>
     <script src="JS/Partners.js" defer></script>
-
     <style>
         * {
             margin: 0;
@@ -77,8 +76,6 @@
             font-size: 24px;
             cursor: pointer;
             color: black;
-            background: none;
-            border: none;
         }
         @media (max-width: 768px) {
             .nav-links {
@@ -101,12 +98,67 @@
                 display: flex;
             }
         }
+
+        /* Light/Dark Mode Button */
+        .theme-switch {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 30px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            background: white;
+            transition: background 0.3s;
+        }
+
+        .icon-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .moon, .sun {
+            font-size: 16px;
+            position: absolute;
+            transition: transform 0.3s ease-in-out;
+            color: black;
+        }
+
+        .moon {
+            left: 8px;
+        }
+
+        .sun {
+            right: 8px;
+            transform: translateX(40px);
+        }
+
+        body.dark-mode .theme-switch {
+            background: black;
+        }
+
+        body.dark-mode .moon {
+            transform: translateX(-40px);
+            color: white;
+        }
+
+        body.dark-mode .sun {
+            transform: translateX(0);
+            color: white;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">NEXUSMC</div>
-        <button class="menu-toggle">☰</button>
         <ul class="nav-links">
             <li><a href="https://nexusmc.fun">Home</a></li>
             <li><a href="https://nexusmc.fun/rules">Rules</a></li>
@@ -115,21 +167,49 @@
             <li><a href="#contact">Contact</a></li>
             <li><a href="#partner-team">Partners</a></li>
         </ul>
+        <div class="menu-toggle">☰</div>
     </nav>
+
+    <!-- Animated Theme Toggle Button -->
+    <div class="theme-switch" id="theme-toggle">
+        <div class="icon-container">
+            <span class="moon">🌙</span>
+            <span class="sun">☀️</span>
+        </div>
+    </div>
 
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked (for mobile)
+        // Close menu when a link is clicked (for mobile view)
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
+        });
+
+        // Check if user has a preferred mode saved
+        if (localStorage.getItem("theme") === "dark") {
+            body.classList.add("dark-mode");
+        }
+
+        // Toggle function
+        themeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+
+            // Save user preference
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
         });
     </script>
 
