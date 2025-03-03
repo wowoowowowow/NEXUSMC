@@ -22,10 +22,91 @@
     <script src="JS/Dev-team.js" defer></script>
     <script src="JS/Builder-team.js" defer></script>
     <script src="JS/Partners.js" defer></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #000000;
+            color: white;
+            transition: background 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background: white;
+            color: black;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #FFC107;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin: 0 15px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #e94560;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: black;
+            background: none;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #FFD54F;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                padding: 10px;
+            }
+            .nav-links li {
+                margin: 10px 0;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">NEXUSMC</div>
+        <button class="menu-toggle">☰</button>
         <ul class="nav-links">
             <li><a href="https://nexusmc.fun">Home</a></li>
             <li><a href="https://nexusmc.fun/rules">Rules</a></li>
@@ -34,8 +115,23 @@
             <li><a href="#contact">Contact</a></li>
             <li><a href="#partner-team">Partners</a></li>
         </ul>
-        <div class="menu-toggle">☰</div>
     </nav>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked (for mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 
     <section id="portrait">
         <img src="Images/nexus_mc_rdx_logo.png" alt="NEXUSMC Logo">
