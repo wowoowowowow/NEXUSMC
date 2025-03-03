@@ -87,6 +87,17 @@
                 display: flex;
             }
         }
+        /* Space between header and logo */
+        #portrait {
+            margin-top: 100px; /* Adjust spacing */
+            text-align: center;
+        }
+
+        #portrait img {
+            max-width: 100%;
+            height: auto;
+        }
+
         /* Light/Dark Mode Button */
         #mode-toggle {
             position: fixed;
@@ -121,8 +132,7 @@
             <li><a href="#minigames">Minigames</a></li>
             <li><a href="#shop">Shop</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#partner-team">Partners</a></li>
-
+            <li><a href="#partner-team">Partners</a></li> <!-- Fixed link -->
         </ul>
         <div class="menu-toggle">☰</div>
     </nav>
@@ -137,6 +147,13 @@
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked (for mobile view)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
 
         // Check if user has a preferred mode saved
