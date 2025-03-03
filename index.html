@@ -87,39 +87,53 @@
                 display: flex;
             }
         }
-        /* Space between header and logo */
-        #portrait {
-            margin-top: 100px; /* Adjust spacing */
-            text-align: center;
-        }
-
-        #portrait img {
-            max-width: 100%;
-            height: auto;
-        }
 
         /* Light/Dark Mode Button */
-        #mode-toggle {
+        .theme-switch {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            background: #007bff;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
+            width: 60px;
+            height: 30px;
+            background: #fff;
+            border-radius: 50px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s, transform 0.2s;
+            padding: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
-        #mode-toggle:hover {
-            background: #0056b3;
-            transform: scale(1.1);
+
+        .icon-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .moon, .sun {
+            font-size: 16px;
+            position: absolute;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .moon {
+            left: 8px;
+        }
+
+        .sun {
+            right: 8px;
+            transform: translateX(40px);
+        }
+
+        body.dark-mode .moon {
+            transform: translateX(-40px);
+        }
+
+        body.dark-mode .sun {
+            transform: translateX(0);
         }
     </style>
 </head>
@@ -132,17 +146,23 @@
             <li><a href="#minigames">Minigames</a></li>
             <li><a href="#shop">Shop</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#partner-team">Partners</a></li> <!-- Fixed link -->
+            <li><a href="#partner-team">Partners</a></li>
         </ul>
         <div class="menu-toggle">☰</div>
     </nav>
 
-    <button id="mode-toggle">🌙</button>
+    <!-- Animated Theme Toggle Button -->
+    <div class="theme-switch" id="theme-toggle">
+        <div class="icon-container">
+            <span class="moon">🌙</span>
+            <span class="sun">☀️</span>
+        </div>
+    </div>
 
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
-        const toggleButton = document.getElementById("mode-toggle");
+        const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
 
         menuToggle.addEventListener('click', () => {
@@ -159,20 +179,17 @@
         // Check if user has a preferred mode saved
         if (localStorage.getItem("theme") === "dark") {
             body.classList.add("dark-mode");
-            toggleButton.textContent = "☀️"; // Sun emoji for light mode
         }
 
         // Toggle function
-        toggleButton.addEventListener("click", () => {
+        themeToggle.addEventListener("click", () => {
             body.classList.toggle("dark-mode");
 
-            // Change button icon and save user preference
+            // Save user preference
             if (body.classList.contains("dark-mode")) {
                 localStorage.setItem("theme", "dark");
-                toggleButton.textContent = "☀️"; // Sun emoji
             } else {
                 localStorage.setItem("theme", "light");
-                toggleButton.textContent = "🌙"; // Moon emoji
             }
         });
     </script>
