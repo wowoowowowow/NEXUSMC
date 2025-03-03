@@ -88,6 +88,21 @@
             }
         }
 
+        /* Portrait Section */
+        #portrait {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 0;
+            text-align: center;
+        }
+        #portrait img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #FFC107;
+        }
+
         /* Light/Dark Mode Button */
         .theme-switch {
             position: fixed;
@@ -177,23 +192,19 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked (for mobile view)
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
 
-        // Check if user has a preferred mode saved
         if (localStorage.getItem("theme") === "dark") {
             body.classList.add("dark-mode");
         }
 
-        // Toggle function
         themeToggle.addEventListener("click", () => {
             body.classList.toggle("dark-mode");
 
-            // Save user preference
             if (body.classList.contains("dark-mode")) {
                 localStorage.setItem("theme", "dark");
             } else {
