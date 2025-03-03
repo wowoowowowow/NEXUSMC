@@ -95,7 +95,6 @@
             right: 20px;
             width: 60px;
             height: 30px;
-            background: #fff;
             border-radius: 50px;
             display: flex;
             align-items: center;
@@ -103,6 +102,8 @@
             cursor: pointer;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             overflow: hidden;
+            background: black;
+            transition: background 0.3s;
         }
 
         .icon-container {
@@ -117,6 +118,7 @@
             font-size: 16px;
             position: absolute;
             transition: transform 0.3s ease-in-out;
+            color: white;
         }
 
         .moon {
@@ -128,12 +130,18 @@
             transform: translateX(40px);
         }
 
+        body.dark-mode .theme-switch {
+            background: white;
+        }
+
         body.dark-mode .moon {
             transform: translateX(-40px);
+            color: black;
         }
 
         body.dark-mode .sun {
             transform: translateX(0);
+            color: black;
         }
     </style>
 </head>
