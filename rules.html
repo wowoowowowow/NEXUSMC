@@ -16,6 +16,11 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
+        .light-mode {
+            background-color: #fff;
+            color: #000;
+        }
+
         /* Header */
         header {
             background: #1e1e1e;
@@ -74,28 +79,33 @@
             text-decoration: underline;
         }
 
-        /* Theme Toggle Button */
-        .theme-toggle-btn {
+        /* Light/Dark Mode Button */
+        #mode-toggle {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            padding: 15px;
-            background-color: #00ffcc;
-            border: none;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            transition: background-color 0.3s ease;
+            border: none;
+            background: #007bff;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, transform 0.2s;
         }
 
-        .theme-toggle-btn:hover {
-            background-color: #00cc99;
+        #mode-toggle:hover {
+            background: #0056b3;
+            transform: scale(1.1);
         }
-
     </style>
 </head>
-<body class="dark-mode">
+<body>
 
     <header>
         <div class="hamburger-menu" onclick="toggleMenu()">
@@ -113,38 +123,39 @@
         <a href="javascript:void(0);" onclick="toggleMenu()">Close Menu</a>
     </nav>
 
-    <button class="theme-toggle-btn" onclick="toggleTheme()">Switch Theme</button>
+    <!-- Light/Dark Mode Button -->
+    <button id="mode-toggle">🌙</button>
 
     <script>
         // Toggle Hamburger Menu
         function toggleMenu() {
             const navMenu = document.getElementById('nav-menu');
-            if (navMenu.style.display === 'flex') {
-                navMenu.style.display = 'none';
-            } else {
-                navMenu.style.display = 'flex';
-            }
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
         }
 
         // Theme Toggle
-        function toggleTheme() {
-            const body = document.body;
-            const btn = document.querySelector('.theme-toggle-btn');
+        const toggleButton = document.getElementById("mode-toggle");
+        const body = document.body;
 
-            if (body.classList.contains('dark-mode')) {
-                body.classList.remove('dark-mode');
-                body.classList.add('light-mode');
-                body.style.backgroundColor = "#fff";
-                body.style.color = "#000";
-                btn.textContent = 'Switch to Dark Mode';
-            } else {
-                body.classList.remove('light-mode');
-                body.classList.add('dark-mode');
-                body.style.backgroundColor = "#121212";
-                body.style.color = "#fff";
-                btn.textContent = 'Switch to Light Mode';
-            }
+        // Check if user has a preferred theme saved
+        if (localStorage.getItem("theme") === "light") {
+            body.classList.add("light-mode");
+            toggleButton.textContent = "🌙"; // Moon emoji for dark mode
         }
+
+        // Toggle function
+        toggleButton.addEventListener("click", () => {
+            body.classList.toggle("light-mode");
+
+            // Change button icon and save user preference
+            if (body.classList.contains("light-mode")) {
+                localStorage.setItem("theme", "light");
+                toggleButton.textContent = "🌙"; // Moon emoji
+            } else {
+                localStorage.setItem("theme", "dark");
+                toggleButton.textContent = "☀️"; // Sun emoji
+            }
+        });
     </script>
 
 </body>
