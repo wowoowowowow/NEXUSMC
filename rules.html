@@ -25,11 +25,29 @@
         header {
             background: #1e1e1e;
             padding: 20px;
-            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         header h1 {
             color: #ff9800;
+            margin: 0;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #ff9800;
+            transition: background 0.3s;
+        }
+
+        header a:hover {
+            background-color: #e68a00;
         }
 
         /* Light/Dark Mode Button */
@@ -72,19 +90,21 @@
             max-width: 800px;
             margin: 40px auto;
             padding: 20px;
-            background: rgba(255, 195, 0);
+            background: yellow; /* Ensures a bright yellow background */
+            color: black; /* Ensures black text */
             border-radius: 10px;
             text-align: left;
         }
 
         .rules-container h2 {
-            color: #ff9800;
+            color: black;
             text-align: center;
         }
 
         .rules-container p {
             margin: 10px 0;
             line-height: 1.6;
+            color: black; /* Ensures all text inside is black */
         }
 
         .emoji {
@@ -96,6 +116,7 @@
 
     <header>
         <h1>NEXUSMC - Rules</h1>
+        <a href="https://nexusmc.fun">Home</a>
     </header>
 
     <!-- Rules Section -->
