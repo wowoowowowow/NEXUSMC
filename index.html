@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUSMC - Home</title
+    <title>NEXUSMC - Home</title>
 
-  !-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="Images/nexus_mc_rdx_logo.png">
 
     <!-- Open Graph (Discord Embed) -->
@@ -50,10 +50,11 @@
             left: 0;
             z-index: 1000;
         }
-        .navbar .logo {
+        .logo a {
             font-size: 24px;
             font-weight: bold;
             color: black;
+            text-decoration: none; /* Removes the blue underline */
         }
         .nav-links {
             list-style: none;
@@ -158,11 +159,9 @@
 </head>
 <body>
     <nav class="navbar">
-        <a href="https://discord.gg/ZwhqGEyqsy">
-    <div class="logo">NEXUSMC</div>
-    </div>
-        </a>
-        
+        <div class="logo">
+            <a href="https://discord.gg/ZwhqGEyqsy">NEXUSMC</a>
+        </div>
 
         <ul class="nav-links">
             <li><a href="https://nexusmc.fun">Home</a></li>
@@ -193,23 +192,18 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked (for mobile view)
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
 
-        // Check if user has a preferred mode saved
         if (localStorage.getItem("theme") === "dark") {
             body.classList.add("dark-mode");
         }
 
-        // Toggle function
         themeToggle.addEventListener("click", () => {
             body.classList.toggle("dark-mode");
-
-            // Save user preference
             if (body.classList.contains("dark-mode")) {
                 localStorage.setItem("theme", "dark");
             } else {
@@ -263,11 +257,6 @@
             <textarea id="message" name="message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
-    </section>
-
-    <section id="shop">
-        <h2>Shop</h2>
-        <p>Support our server by visiting our shop: <a href="https://nexusmc-269.tebex.io/" target="_blank">NEXUSMC Store</a></p>
     </section>
 
     <footer>
